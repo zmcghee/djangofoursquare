@@ -1,5 +1,9 @@
 from django.contrib.auth.models import User, check_password
-from django.forms.fields import email_re
+# email_re moved in Django 1.2
+try:
+    from django.core.validators import email_re
+except ImportError:
+    from django.forms.fields import email_re
 
 FOURSQUARE_USER_PREFIX = '4sq_'
 
